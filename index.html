@@ -1,0 +1,701 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<title>Shower Presentation Engine</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen.css">
+</head>
+
+<body class="list" lang="ru">
+
+	<style>
+		
+		.slide h3 {
+			margin: -30px 0 37px;
+			color: #666;
+			font: 700 40px/1 'PT Sans Narrow',sans-serif;
+		}
+		
+		.slide table th, .slide table td {
+			text-align: center; 
+			width: 12%;
+		}
+		.slide .tleft {
+			text-align: left; 
+			width: 28%;
+			background-color: white;
+			color: black;
+		}
+		.slide table td {
+			background-color: green; 
+			color: white;
+			opacity: 0.8;
+		}
+		.slide .red {
+			background-color: red;
+		}
+		.slide .orange {
+			background-color: orange;
+		}
+
+		.cover h2 {
+			margin:200px 0 0;
+			padding: 20px;
+			color:#000;
+			text-align:center;
+			font-size:70px;
+			background-color: rgba(255,255,0,0.8);
+		}
+		.cover p {
+			margin:20px 0 0;
+			padding: 10px;
+			text-align:center;
+			color:#000;
+			font-style:italic;
+			font-size:20px;
+			font-weight: bold;
+			background-color: rgba(255,255,0,0.8);
+		}
+
+		@-webkit-keyframes actone {
+			to  { background-color: lightgreen; }
+		}
+		.slide code.next.active, 
+		.slide pre.next.active, 
+		.slide div.next.active {
+			-webkit-animation-name: actone;
+			-webkit-animation-duration: 1s;
+			-webkit-animation-timing-function: ease-in;
+			-webkit-animation-direction: reverse;
+		}
+		
+/*		@-webkit-keyframes acttwo {
+			to  { background-color: lightgray; }
+		}
+		.slide li.next.active,
+		.slide p.next.active {
+			-webkit-animation-name: acttwo;
+			-webkit-animation-duration: 1s;
+			-webkit-animation-timing-function: ease-in;
+			-webkit-animation-direction: reverse;
+		}*/
+
+		.slide code.nopseudo::before {
+			display: none;
+		}
+
+		.slide.shout p.right {
+			text-align: right;
+			font-size: 40px;
+		}
+
+	</style>
+
+	<header class="caption">
+		<h1>Веб-компоненты - будущее или настоящее?</h1>
+		<p>Денис Иогансен, MoscowJS 20</p>
+	</header>
+
+	<section class="slide cover"><div>
+		<h2>Веб-компоненты - будущее или настоящее?</h2>
+		<p>Денис Иогансен, MoscowJS 20</p>
+		<img src="pictures/puzzle-cover.jpg" alt="">
+	</div></section>
+
+	<section class="slide cover"><div>
+		<img src="pictures/audio-comp.png" alt="">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Спецификации</h2>
+		<ul>
+			<li class="next"> HTML Import</li>
+			<li class="next"> &lt;template&gt;</li>
+			<li class="next"> Custom elements</li>
+			<li class="next"> Shadow DOM</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout shrink"><div>
+		<h2>HTML Import</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>HTML Import</h2>
+		<ul>
+			<li> Загрузка внешнего html документа</li>
+			<li class="next"> Кэшируется</li>
+			<li class="next"> Может содержать другие линки ( html, css, js )</li>
+			<!-- <li class="next"> Умеет не обрабатывать повторные и цикличные ссылки</li> -->
+			<li class="next"> Выполнение приостанавливается до полной загрузки</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>HTML Import</h2>
+		<pre>
+			<code>&lt;link rel="import" href="document.html"&gt;</code>
+			<code class="nopseudo"></code>
+		</pre>
+	</div></section>
+
+	<section class="slide shout shrink"><div>
+    <h2>&lt;template&gt;</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>&lt;template&gt;</h2>
+		<ul>
+			<li> Создание шаблонного DOM фрагмента</li>
+			<li class="next"> Замена <code>&lt;div hidden&gt;</code> и <code>&lt;script type="template"&gt;</code></li>
+			<li class="next showlink"> Содержимое не доступно пока не в документе*</li>
+			<li class="next"> Содержимое не грузится пока не в документе*</li>
+		</ul>
+		<p class="link next note"> * не вызвано .importNode() или .cloneNode()</p>
+
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>&lt;template&gt;</h2>
+		<pre>
+			<code>&lt;template id="temp"&gt;</code>
+			<code>    &lt;div&gt;Привет из шаблона!&lt;/div&gt;</code>
+			<code>&lt;/template&gt;</code>
+		</pre>
+		<pre>
+			<code class="next">var temp = document.querySelector('#temp');</code>
+			<code class="next">var clone = temp.content.cloneNode(true);</code>
+			<code class="next">document.body.appendChild(clone);</code>
+		</pre>
+	</div></section>
+
+	<section class="slide shout shrink"><div>
+		<h2>Custom elements</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Custom elements</h2>
+		<ul>
+			<li> Создание собственного DOM элемента (тега)</li>
+			<li class="next"> Реализация кастомной логики</li>
+			<li class="next"> Обработка нативных событий жизненого цикла</li>
+			<li class="next"> Должен содержать дефис в своём названии</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Custom elements</h2>
+		<pre>
+			<code>var proto = Object.create(HTMLElement.prototype);</code>
+			<div class="next">
+				<code>proto.createdCallback = function() {</code>
+				<code>    this.innerHTML = 'Привет из нового элемента!';</code>
+				<code>};</code>
+			</div>
+			<code class="next">document.registerElement('my-elem', {prototype: proto});</code>
+		</pre>
+		<pre class="next">
+			<code>&lt;my-elem&gt;&lt;/my-elem&gt;</code>
+			<code class="nopseudo"></code>
+		</pre>
+	</div></section>
+
+	<section class="slide shout shrink"><div>
+		<h2>Shadow DOM</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Shadow DOM</h2>
+		<ul>
+			<li> Создание закрытого теневого дерева</li>
+			<li class="next"> Скрывает внутреннюю реализацию (разметку)</li>
+			<li class="next"> Изолирует внутренние оформление (стили)</li>
+			<li class="next"> Позволяет обрабатывать содержимое элемента</li>
+		</ul>
+	</div></section>
+
+	<section class="slide cover"><div>
+		<img src="pictures/audio-comp.png" alt="">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Shadow DOM</h2>
+		<pre>
+			<code>var proto = Object.create(HTMLElement.prototype);</code>
+			<code>proto.createdCallback = function() {</code>
+			<code class="next">    var shadow = this.createShadowRoot();</code>
+			<code class="next">    shadow.innerHTML = 'Привет из закрытого дерева!';</code>
+			<code>};</code>
+			<code>document.registerElement('my-elem', {prototype: proto});</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div style="padding-top: 40px; height: 540px;">
+		<pre class="next">
+			<code>&lt;template id="temp"&gt;</code>
+			<code>    &lt;div&gt;'Привет изнутри! <mark class="next">&lt;content&gt;&lt;/content&gt;</mark>&lt;/div&gt;</code>
+			<code>&lt;/template&gt;</code>
+		</pre>
+		<pre>
+			<code class="next">var temp = document.querySelector('#temp');</code>
+			<code>var proto = Object.create(HTMLElement.prototype);</code>
+			<code>proto.createdCallback = function() {</code>
+			<code>    var shadow = this.createShadowRoot();</code>
+			<code class="next">    shadow.appendChild(temp.content.cloneNode(true));</code>
+			<code>};</code>
+			<code>document.registerElement('my-elem', {prototype: proto});</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Использование</h2>
+		<pre>
+			<code>&lt;link rel="import" href="my-elem.html"&gt;</code>
+			<code class="next showlink">&lt;my-elem&gt;Привет из содержимого элемента!&lt;/my-elem&gt;</code>
+			<code class="next showlink">&lt;my-elem&gt;&lt;b&gt;Жирный привет!&lt;/b&gt;&lt;/my-elem&gt;</code>
+		</pre>
+		<p>
+			<span class="link next"> Привет изнутри! Привет из содержимого элемента!</span><br>
+			<span class="link next">Привет изнутри! <b>Привет снаружи!</b></span>
+		</p>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Приемущества</h2>
+		<ul>
+			<li class="next"> Сложное разделяется на простые части</li>
+			<li class="next"> Повышается семантика</li>
+			<li class="next"> Легко поддерживать / дорабатывать</li>
+			<li class="next"> Легко тестировать</li>
+			<li class="next"> Легко переиспользовать</li>
+			<li class="next"> <code>component.kitchen</code> и <code>customelements.io</code></li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Текущая поддержка</h2>
+		<table><tbody>
+			<tr>
+				<th class="tleft">Браузеры *</th>
+				<th>IE</th>
+				<th>Chrome</th>
+				<th>Firefox</th>
+				<th>Safari</th>
+				<th>Android</th>
+				<th>IOS</th>
+			</tr>
+			<tr>
+				<td class="tleft">HTML Imports</td>
+				<td class="red">-</td>
+				<td>+</td>
+				<td class="orange">f</td>
+				<td class="red">-</td>
+				<td>+</td>
+				<td class="red">-</td>
+			</tr>
+			<tr>
+				<td class="tleft">&lt;template&gt;</td>
+				<td class="red">-</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+			</tr>
+			<tr>
+				<td class="tleft">Custom elements</td>
+				<td class="red">-</td>
+				<td>+</td>
+				<td class="orange">f</td>
+				<td class="red">-</td>
+				<td>+</td>
+				<td class="red">-</td>
+			</tr>
+			<tr>
+				<td class="tleft">Shadow DOM</td>
+				<td class="red">-</td>
+				<td>+</td>
+				<td class="orange">f</td>
+				<td class="red">-</td>
+				<td>+</td>
+				<td class="red">-</td>
+			</tr>
+		</tbody></table>
+		<p class="note"> * последние версии</p>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Набор полифилов</h2>
+		<table><tbody>
+			<tr>
+				<th class="tleft">Браузеры *</th>
+				<th>IE</th>
+				<th>Chrome</th>
+				<th>Firefox</th>
+				<th>Safari</th>
+				<th>Android</th>
+				<th>IOS</th>
+			</tr>
+			<tr>
+				<td class="tleft">HTML Imports</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+			</tr>
+			<tr>
+				<td class="tleft">&lt;template&gt;</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+			</tr>
+			<tr>
+				<td class="tleft">Custom elements</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+			</tr>
+			<tr>
+				<td class="tleft">Shadow DOM</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+				<td>+</td>
+			</tr>
+		</tbody></table>
+		<p class="note"> * последние версии</p>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>webcomponent.js</h2>
+		<ul>
+			<li class="next"> Отделили от <code>polymer</code></li>
+			<!-- <li class="next"> Переименован из <code>platform.js</code></li> -->
+			<li class="next"> Содержит полифилы WeakMap(es2015) и MutationObservers</li>
+			<li class="next"> Полная версия <mark>105 kb</mark></li>
+			<li class="next"> Лайт версия (без Shadow DOM) <mark>28 kb</mark></li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Ложка дегтя - Shadow DOM</h2>
+		<ul>
+			<li class="next"> Достаточно медленный</li>
+			<!-- <li class="next"> Стили должны быть в html <mark>?</mark></li> -->
+			<li class="next"> Проблемы с событиями</li>
+			<li class="next showlink"> Два режима инкапсуляции (открытый и закрытый) *</li>
+			<li class="next"> Закрытый еще плохо описан *</li>
+		</ul>
+		<p class="link note next"> * черновик на github</p>
+	</div></section>
+
+	<section class="slide cover"><div>
+		<img src="pictures/polymer.jpg" alt="">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Polymer 0.8</h2>
+		<ul>
+			<li> Новая версия (полностью переписанна)</li>
+			<li class="next"> Увеличена производительность</li>
+			<li class="next"> Значительно уменьшен размер</li>
+			<li class="next"> Возможность выбора уровня функциональности</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout shrink"><div>
+		<h2>Polymer-micro</h2>
+		<p class="right">Размер <mark>8 kb</mark></p>
+	</div></section>
+
+	<section class="slide"><div>
+		<h3>Базовый синтаксический сахар</h3>
+		<pre>
+			<code>Polymer({</code>
+			<code>    <mark>is</mark>: 'my-elem',</code>
+			<code>    <mark>created</mark>: function() {</code>
+			<code>        this.innerHTML = 'Привет из веб-компоненты!';</code>
+			<code>    }</code>
+			<code>});</code>
+		</pre>
+		<pre>
+			<code>&lt;my-elem&gt;&lt;/my-elem&gt;</code>
+			<code class="nopseudo"></code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h3>Наследование от нативных элементов</h3>
+		<pre>
+			<code>Polymer({</code>
+			<code>    is: 'my-elem',</code>
+			<code>    <mark>extends</mark>: 'input'</code>
+			<code>});</code>
+		</pre>
+		<pre>
+			<code>&lt;my-elem&gt;&lt;/my-elem&gt;</code>
+			<code class="nopseudo"></code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h3>Конвертация атрибутов к свойствам</h3>
+		<pre>
+			<code>Polymer({</code>
+			<code>    is: 'my-elem',</code>
+			<code>    <mark>properties</mark>: {</code>
+			<code>        <mark>userName</mark>: String,</code>
+			<code>    }</code>
+			<code>});</code>
+		</pre>
+		<pre>
+			<code>&lt;my-elem <mark>user-name</mark>="Denis"&gt;&lt;/my-elem&gt;</code>
+			<code class="nopseudo"></code>
+		</pre>
+	</div></section>
+
+	<section class="slide shout shrink"><div>
+		<h2>Polymer-mini</h2>
+		<p class="right">Размер <mark>28 kb</mark></p>
+	</div></section>
+
+	<section class="slide"><div>
+		<h3>Расширеная работа с шаблонами</h3>
+		<pre>
+			<code>&lt;<mark>dom-module</mark> id="my-elem"&gt;</code>
+			<code>    &lt;template&gt;Привет из веб-компоненты!&lt;/template&gt;</code>
+			<code>&lt;<mark>/dom-module</mark>&gt;</code>
+		</pre>
+		<pre>
+			<code>Polymer({</code>
+			<code>    is: 'my-elem'</code>
+			<code>});</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h3>Работа с содержимым элемента</h3>
+		<pre>
+			<code>&lt;dom-module id="my-elem"&gt;&lt;template&gt;</code>
+			<code>    &lt;div&gt;Привет из веб-компоненты!&lt;/div&gt;</code>
+			<code>    &lt;<mark>content</mark> select="<mark>.myclass</mark>"&gt;&lt;<mark>/content</mark>&gt;</code>
+			<code>&lt;/template&gt;&lt;/dom-module&gt;</code>
+		</pre>
+		<pre>
+			<code>&lt;my-elem&gt;</code>
+			<code>    &lt;p&gt;Привет без класса!&lt;/p&gt;</code>
+			<code>    &lt;<mark>p</mark> class="<mark>myclass</mark>"&gt;Привет с классом!&lt;<mark>/p</mark>&gt;</code>
+			<code>&lt;/my-elem&gt;</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h3>Изолирование оформления (scoped css)</h3>
+		<pre>
+			<code>&lt;dom-module id="my-elem"&gt;</code>
+			<code>    &lt;<mark>style</mark>&gt;/* Оформление */&lt;<mark>/style</mark>&gt;</code>
+			<code>    &lt;template&gt;Привет из веб-компоненты!&lt;/template&gt;</code>
+			<code>&lt;/dom-module&gt;</code>
+		</pre>
+		<pre>
+			<code>Polymer({</code>
+			<code>    is: 'my-elem'</code>
+			<code>});</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h3>Расширеные внутренние свойства</h3>
+		<pre>
+			<code>Polymer({</code>
+			<code>    is: 'my-elem',</code>
+			<code>    properties: {</code>
+			<code>        myProp: {</code>
+			<code>            <mark>type</mark>: String,</code>
+			<code>            <mark>notify</mark>: true,</code>
+			<code>            <mark>value</mark>: 'text' или function() {}</code>
+			<code>} } });</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h3>Собственное DOM API</h3>
+		<pre>
+			<code>var toLight = document.createElement('div');</code>
+			<code><mark>Polymer.dom</mark>(this).appendChild(toLight);</code>
+		</pre>
+		<pre>
+			<code>var toLocal = document.createElement('div');</code>
+			<code>var beforeNode = <mark>Polymer.dom</mark>(this.root).childNodes[0];</code>
+			<code><mark>Polymer.dom</mark>(this.root).insertBefore(toLocal, beforeNode);</code>
+		</pre>
+		<pre>
+			<code>var allSpans = <mark>Polymer.dom</mark>(this).querySelectorAll('span');</code>
+			<code class="nopseudo"></code>
+		</pre>
+	</div></section>
+
+	<section class="slide shout shrink"><div>
+		<h2>Polymer (full)</h2>
+		<p class="right">Размер <mark>78 kb</mark></p>
+	</div></section>
+
+	<section class="slide"><div>
+		<h3>Удобную работу с обработкой событий</h3>
+		<pre>
+			<code>Polymer({</code>
+			<code>    is: 'my-elem',</code>
+			<code>    <mark>listeners</mark>: {</code>
+			<code>        '<mark>click</mark>': '<mark>handleClick</mark>'</code>
+			<code>    },</code>
+			<code>    <mark>handleClick</mark>: function(e) {</code>
+			<code>        alert("Спасибо за клик!");</code>
+			<code>} });</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h3>Установка обработчика через атрибуты</h3>
+		<pre>
+			<code>&lt;dom-module id="my-elem"&gt;&lt;template&gt;</code>
+			<code>    &lt;button <mark>on-click</mark>="<mark>handleClick</mark>"&gt;Жми!&lt;/button&gt;</code>
+			<code>&lt;/template&gt;&lt;/dom-module&gt;</code>
+		</pre>
+		<pre>
+			<code>Polymer({</code>
+			<code>    is: 'my-elem',</code>
+			<code>    <mark>handleClick</mark>: function(e) {</code>
+			<code>        alert("Спасибо за клик!");</code>
+			<code>} });</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h3>Отслеживание изменения свойств</h3>
+		<pre>
+			<code>Polymer({</code>
+			<code>    is: 'my-elem',</code>
+			<code>    properties: { preload: Boolean, src: String },</code>
+			<code>    <mark>observers</mark>: {</code>
+			<code>        'preload src': '<mark>updateImage</mark>'</code>
+			<code>    },</code>
+			<code>    <mark>updateImage</mark>: function( preload, src ){ что-то делаем }</code>
+			<code>});</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h3>Декларативный дата биндинг</h3>
+		<pre>
+			<code>&lt;dom-module id="my-elem"&gt;&lt;template&gt;</code>
+			<code>    &lt;p&gt;Привет! Меня зовут &lt;span&gt;<mark>{{user.name}}</mark>&lt;/span&gt;&lt;/p&gt;</code>
+			<code>&lt;/template&gt;&lt;/dom-module&gt;</code>
+		</pre>
+		<pre>
+			<code>Polymer({</code>
+			<code>    is: 'my-elem',</code>
+			<code>    properties: { <mark>user</mark>: { type: Object,</code>
+			<code>                           value: { <mark>name</mark>: 'Денис' }</code>
+			<code>} } });</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h3>А так же:</h3>
+		<ul>
+			<li class="next"> Обновление внешних атрибутов</li>
+			<li class="next"> Вычисляемые свойства </li>
+			<li class="next"> Набор хелперов</li>
+			<li class="next"> Глобальные параметры</li>
+			<li class="next"> Эксперементальные элементы</li>
+			<li class="next"> Собственные css свойства (экс.)</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Напоследок</h2>
+		<ul>
+			<li class="next"> <code>Polymer</code> больше не эксперимент</li>
+			<li class="next"> Ожидаемый выход <code>production release 1.0</code> - 2 квартал 2015</li>
+		</ul>
+		<ul>
+			<li class="next"> Библиотека базовых элементов</li>
+			<li class="next"> Библиотека в стиле <code>Material Design</code></li>
+			<li class="next"> Визуальный редактор</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Заключение</h2>
+		<ul>
+			<li class="next"> Уже используют Github, Salesforce, NewsCorp ...</li>
+			<li class="next"> Скоро будут Youtube, QuickOffice, GoogleMusic ...</li>
+			<li class="next"> Много примеров: PolymerMail, Topeka, SantaTracker ...</li>
+		</ul>
+		<ul>
+			<li class="next"> <mark>Веб-компоненты - это уже настоящее!</mark></li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Вопросы?</h2>
+		<ul>
+			<li> Денис Иогансен</li>
+			<li> @pofigizm</li>
+		</ul>
+		<ul>
+			<li> Ссылка на презентацию</li>
+		</ul>
+	</div></section>
+
+	<p class="badge"><a href="https://github.com/shower/shower">Fork me on Github</a></p>
+
+	<div class="progress"><div></div></div>
+	<script src="node_modules/shower-core/shower.min.js"></script>
+
+	<script>
+	setTimeout(function(){
+		console.log('changed slide.prototype.next function'); 
+		shower.slideList[0].__proto__.next = function(shower) {
+			var nextSteps,
+				slide = this;
+
+			if ( ! slide.hasInnerNavigation || slide.isFinished()) {
+				shower.next();
+				return false;
+			}
+
+			if ( ! slide.isFinished()) {
+				nextSteps = document.getElementById(slide.id).querySelectorAll('.next:not(.active)');
+
+				if (nextSteps[0].classList.contains('showlink')) {
+					var nextNote = document.getElementById(slide.id).querySelectorAll('.link.next:not(.active)');
+
+					nextNote[0].classList.add('active');
+					slide.innerComplete++;
+				}
+
+				nextSteps[0].classList.add('active');
+				slide.innerComplete++;
+			}
+
+			return this;
+		};
+	}, 1);
+	</script>
+
+</body>
+</html>
