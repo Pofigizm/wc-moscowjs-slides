@@ -41,7 +41,7 @@
 			background-color: orange;
 		}
 
-		#cover h2 {
+		.cover h2 {
 			margin:200px 0 0;
 			padding: 20px;
 			color:#000;
@@ -49,7 +49,7 @@
 			font-size:70px;
 			background-color: rgba(255,255,0,0.8);
 		}
-		#cover p {
+		.cover p {
 			margin:20px 0 0;
 			padding: 10px;
 			text-align:center;
@@ -59,12 +59,6 @@
 			font-weight: bold;
 			background-color: rgba(255,255,0,0.8);
 		}
-		#audio h2 {
-			margin:-60px 0 0;
-			padding: 5px;
-			background-color: rgba(255,255,255,0.6);
-		}
-
 
 		@-webkit-keyframes actone {
 			to  { background-color: lightgreen; }
@@ -105,31 +99,38 @@
 		<p>Денис Иогансен, MoscowJS 20</p>
 	</header>
 
-	<section class="slide cover" id="cover"><div>
+	<section class="slide cover"><div>
 		<h2>Веб-компоненты - будущее или настоящее?</h2>
 		<p>Денис Иогансен, MoscowJS 20</p>
 		<img src="pictures/puzzle-cover.jpg" alt="">
 	</div></section>
 
-	<section class="slide shout"><div>
-		<h2> Структура</h2>
-	</div></section>
-
-	<section class="slide shout"><div>
-		<h2> Вступление</h2>
-	</div></section>
-
-	<section class="slide shout shrink"><div>
-		<h2>Спецификации</h2>
+	<section class="slide cover"><div>
+		<img src="pictures/audio-one.jpg" alt="">
 	</div></section>
 
 	<section class="slide"><div>
 		<h2>Спецификации</h2>
 		<ul>
-			<li class="next"> <b>HTML Import</b> - внешний html документ</li>
-			<li class="next"> <b>&lt;template&gt;</b> - пассивный DOM фрагмент (заготовка)</li>
-			<li class="next"> <b>Custom elements</b> - собственный элемент (тег)</li>
-			<li class="next"> <b>Shadow DOM</b> - скрытое дерево элемента</li>
+			<li class="next"> HTML Import</li>
+			<li class="next"> &lt;template&gt;</li>
+			<li class="next"> Custom elements</li>
+			<li class="next"> Shadow DOM</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout shrink"><div>
+		<h2>HTML Import</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>HTML Import</h2>
+		<ul>
+			<li> Загрузка внешнего html документа</li>
+			<li class="next"> Кэшируется</li>
+			<li class="next"> Может содержать другие линки ( html, css, js )</li>
+			<!-- <li class="next"> Умеет не обрабатывать повторные и цикличные ссылки</li> -->
+			<li class="next"> Выполнение приостанавливается до полной загрузки</li>
 		</ul>
 	</div></section>
 
@@ -141,18 +142,19 @@
 		</pre>
 	</div></section>
 
+	<section class="slide shout shrink"><div>
+    <h2>&lt;template&gt;</h2>
+	</div></section>
+
 	<section class="slide"><div>
-		<h2>До &lt;template&gt;</h2>
-		<pre class="next">
-			<code>&lt;div <mark>hidden</mark> id="temp"&gt;</code>
-			<code>    &lt;img class="pict" src="picture.jpg"&gt;</code>
-			<code>&lt;/div&gt;</code>
-		</pre>
-		<pre class="next">
-			<code>&lt;script tape="<mark>text/template</mark>"&gt;</code>
-			<code>    &lt;img class="pict" src="picture.jpg"&gt;</code>
-			<code>&lt;/script&gt;</code>
-		</pre>
+		<h2>&lt;template&gt;</h2>
+		<ul>
+			<li> Создание шаблонного DOM фрагмента</li>
+			<li class="next"> Замена <code>&lt;div hidden&gt;</code> и <code>&lt;script type="template"&gt;</code></li>
+			<li class="next showlink"> Содержимое не доступно пока не в документе*</li>
+			<li class="next"> Содержимое не грузится пока не в документе*</li>
+		</ul>
+		<p class="link next note"> * не вызвано .importNode() или .cloneNode()</p>
 
 	</div></section>
 
@@ -160,7 +162,7 @@
 		<h2>&lt;template&gt;</h2>
 		<pre>
 			<code>&lt;template id="temp"&gt;</code>
-			<code>    &lt;img class="pict" src="picture.jpg"&gt;</code>
+			<code>    &lt;div&gt;Привет из шаблона!&lt;/div&gt;</code>
 			<code>&lt;/template&gt;</code>
 		</pre>
 		<pre>
@@ -170,19 +172,17 @@
 		</pre>
 	</div></section>
 
+	<section class="slide shout shrink"><div>
+		<h2>Custom elements</h2>
+	</div></section>
+
 	<section class="slide"><div>
-		<h2>Особенности Custom elements</h2>
+		<h2>Custom elements</h2>
 		<ul>
-			<li class="next"> Собственная логика</li>
-			<li class="next"> Доступны события жизненого цикла
-				<ul>
-					<li> Создание элемента </li>
-					<li> Вставка в документ </li>
-					<li> Удаление из документа </li>
-					<li> Изменение атрибутов элемента </li>
-				</ul>
-			</li>
-			<li class="next"> Имя элемента должно содержать дефис</li>
+			<li> Создание собственного DOM элемента (тега)</li>
+			<li class="next"> Реализация кастомной логики</li>
+			<li class="next"> Обработка нативных событий жизненого цикла</li>
+			<li class="next"> Должен содержать дефис в своём названии</li>
 		</ul>
 	</div></section>
 
@@ -192,7 +192,7 @@
 			<code>var proto = Object.create(HTMLElement.prototype);</code>
 			<div class="next">
 				<code>proto.createdCallback = function() {</code>
-				<code>    this.innerHTML = 'Содержимое нового элемента.';</code>
+				<code>    this.innerHTML = 'Привет из нового элемента!';</code>
 				<code>};</code>
 			</div>
 			<code class="next">document.registerElement('my-elem', {prototype: proto});</code>
@@ -203,32 +203,22 @@
 		</pre>
 	</div></section>
 
-	<section class="slide cover" id="audio"><div>
+	<section class="slide shout shrink"><div>
 		<h2>Shadow DOM</h2>
-		<img src="pictures/audio.jpg" alt="">
 	</div></section>
 
 	<section class="slide"><div>
 		<h2>Shadow DOM</h2>
-		<pre>
-			<code>&lt;button id="butt"&gt;Светлая сторона&lt;/button&gt;</code>
-			<code class="nopseudo"></code>
-		</pre>
-		<pre>
-			<code>var host = document.querySelector('#butt');</code>
-			<code>var root = host.createShadowRoot();</code>
-			<code>root.textContent = 'Темная сторона';</code>
-		</pre>
-		<button id="butt" style="padding: 10px; font-size: 20px;">Светлая сторона</button>
-		<script>
-			var host = document.querySelector('#butt');
-			var root = host.createShadowRoot();
-			root.textContent = 'Темная сторона';
-		</script>
+		<ul>
+			<li> Создание закрытого теневого дерева</li>
+			<li class="next"> Скрывает внутреннюю реализацию (разметку)</li>
+			<li class="next"> Изолирует внутренние оформление (стили)</li>
+			<li class="next"> Позволяет обрабатывать содержимое элемента</li>
+		</ul>
 	</div></section>
 
-	<section class="slide shout shrink"><div>
-		<h2>Все части вместе</h2>
+	<section class="slide cover"><div>
+		<img src="pictures/audio-two.jpg" alt="">
 	</div></section>
 
 	<section class="slide"><div>
@@ -243,7 +233,7 @@
 		</pre>
 	</div></section>
 
-	<section class="slide minicode"><div style="padding-top: 40px; height: 540px;">
+	<section class="slide"><div style="padding-top: 40px; height: 540px;">
 		<pre class="next">
 			<code>&lt;template id="temp"&gt;</code>
 			<code>    &lt;div&gt;Привет изнутри! <mark class="next">&lt;content&gt;&lt;/content&gt;</mark>&lt;/div&gt;</code>
@@ -277,7 +267,7 @@
 		<h2>Приемущества</h2>
 		<ul>
 			<li class="next"> Сложное разделяется на простые части</li>
-			<li class="next"> Улучшается семантика</li>
+			<li class="next"> Повышается семантика</li>
 			<li class="next"> Легко поддерживать / дорабатывать</li>
 			<li class="next"> Легко тестировать</li>
 			<li class="next"> Легко переиспользовать</li>
@@ -404,10 +394,11 @@
 	<section class="slide"><div>
 		<h2>Ложка дегтя - Shadow DOM</h2>
 		<ul>
-			<li class="next"> Медленный</li>
+			<li class="next"> Достаточно медленный</li>
 			<!-- <li class="next"> Стили должны быть в html <mark>?</mark></li> -->
 			<li class="next"> Проблемы с событиями</li>
-			<li class="next showlink"> Постоянно переписывается *</li>
+			<li class="next showlink"> Два режима инкапсуляции (открытый и закрытый) *</li>
+			<li class="next"> Закрытый еще плохо описан *</li>
 		</ul>
 		<p class="link note next"> * черновик на github</p>
 	</div></section>
@@ -419,7 +410,7 @@
 	<section class="slide"><div>
 		<h2>Polymer 0.8</h2>
 		<ul>
-			<li> Новая версия (полностью переписана)</li>
+			<li> Новая версия (полностью переписанна)</li>
 			<li class="next"> Увеличена производительность</li>
 			<li class="next"> Значительно уменьшен размер</li>
 			<li class="next"> Возможность выбора уровня функциональности</li>
@@ -630,7 +621,7 @@
 			<li class="next"> Вычисляемые свойства </li>
 			<li class="next"> Набор хелперов</li>
 			<li class="next"> Глобальные параметры</li>
-			<li class="next"> Экспериментальные элементы</li>
+			<li class="next"> Эксперементальные элементы</li>
 			<li class="next"> Собственные css свойства (экс.)</li>
 		</ul>
 	</div></section>
