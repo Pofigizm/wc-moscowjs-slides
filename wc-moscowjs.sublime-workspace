@@ -1,0 +1,465 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fo",
+				"font-size"
+			],
+			[
+				"pa",
+				"padding-right"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"R",
+				"rgba()"
+			],
+			[
+				"get",
+				"getItem"
+			],
+			[
+				"ma",
+				"margin-left"
+			],
+			[
+				"lo",
+				"localStorage"
+			],
+			[
+				"inne",
+				"innerHTML"
+			],
+			[
+				"le",
+				"letter-spacing"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"back",
+				"background-position"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"font",
+				"font-family"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 20511,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 120.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2deb499853c4371624f5a07e27c334aa' + 'bf8c4e67d14fb0525ba4f89698a6d7e1'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/pfgzm/projects/wc-moscowjs-slides"
+	],
+	"file_history":
+	[
+		"/home/pfgzm/projects/wc-moscowjs-slides/Readme.md",
+		"/home/pfgzm/projects/wc-moscowjs-slides/Gruntfile.js",
+		"/home/pfgzm/projects/wc-shower/index.html",
+		"/home/pfgzm/projects/wc-shower/Readme.md",
+		"/home/pfgzm/projects/wc-shower/package.json",
+		"/home/pfgzm/projects/wc-shower/.gitignore",
+		"/home/pfgzm/projects/pro2/Cms/NewTape/Writer.php",
+		"/home/pfgzm/projects/pro2/vhosts/static/_global/scripts/modules/webrtc.js",
+		"/home/pfgzm/projects/pro2/resources/templates/pro4/ad/types/micro_topic.tpl",
+		"/home/pfgzm/projects/pro2/config/global.php",
+		"/home/pfgzm/projects/pro2/vhosts/static/_global/scripts/other/micro.js",
+		"/home/pfgzm/projects/pro2/Cms/Logger/LoggerAccessor.php",
+		"/home/pfgzm/projects/pro2/migration/deltas/done/29399-log-app-users.sql",
+		"/home/pfgzm/projects/pro2/vhosts/static/_global/jst/dialog/groups-comment-admin.jst",
+		"/home/pfgzm/projects/pro2/deploy/config/graph/log.yml",
+		"/home/pfgzm/projects/pro2/resources/geo_mapping_source/gis-lab.info.names.txt",
+		"/home/pfgzm/projects/pro2/Cms/Geo.php",
+		"/home/pfgzm/projects/pro2/vhosts/static/_global/jst/micro_ad.jst",
+		"/home/pfgzm/projects/pro2/resources/templates/pro4/micro_script.js",
+		"/home/pfgzm/projects/pro2/Cms/Messenger/Filler/MicroADShowed.php",
+		"/home/pfgzm/projects/pro2/Cms/Service/Api/Microsoft.php",
+		"/home/pfgzm/projects/pro2/Cms/Oauth/Microsoft.php",
+		"/home/pfgzm/projects/pro2/migration/deltas/done/13575-messages-images-cleaning.sql",
+		"/home/pfgzm/projects/pro2/tests/behavior/features/unauthorized_user/check_links_and_buttons_main_page/media_info.feature",
+		"/home/pfgzm/projects/pro2/main.php",
+		"/home/pfgzm/projects/pro2/resources/templates/_global/templates_loader.tpl",
+		"/home/pfgzm/projects/pro2/vhosts/static/_global/jst/tooltip_error.jst",
+		"/home/pfgzm/projects/pro2/Cms/Targeting.php",
+		"/home/pfgzm/projects/pro2/Cms/Package/Webinar.php",
+		"/home/pfgzm/projects/pro2/resources/templates/pro4/profile/version2.0/blocks/profile_work_experience.tpl",
+		"/home/pfgzm/projects/pro2/resources/templates/_global/web_app_response.tpl",
+		"/home/pfgzm/projects/pro2/Cms/Orm/Row/Users/Profile/BirthdayChange.php",
+		"/home/pfgzm/projects/pro2/vhosts/static/_global/scripts/modules/parser.js",
+		"/home/pfgzm/projects/pro2/Cms/Rabbit/PhpAmqpLibAdapter.php",
+		"/home/pfgzm/projects/pro2/pro2.sublime-project",
+		"/home/pfgzm/projects/pro2/vhosts/static/_global/scripts/modules/utils.js",
+		"/home/pfgzm/projects/pro2/resources/templates/pro4/form/layouts/dialog.tpl",
+		"/home/pfgzm/projects/pro2/vhosts/static/_global/scripts/modules/dialog.js",
+		"/home/pfgzm/projects/pro2/vhosts/static/_global/scripts/modules/forms.js",
+		"/home/pfgzm/projects/pro2/config/frontend.php",
+		"/home/pfgzm/projects/pro2/Cms/Iterator/FromUser.php",
+		"/home/pfgzm/projects/pro2/Cms/Iterator/ForRegularMail.php",
+		"/home/pfgzm/projects/pro2/Cms/Factory.php",
+		"/home/pfgzm/projects/pro2/Cms/Date.php",
+		"/home/pfgzm/projects/pro2/Cms/Console/Dialog.php",
+		"/home/pfgzm/projects/pro2/Cms/Utils/DataBag/DataBagInterface.php",
+		"/home/pfgzm/projects/pro2/vhosts/static/_global/scripts/modules/slider.js",
+		"/home/pfgzm/projects/pro2/resources/templates/pro4/form/slider.tpl",
+		"/home/pfgzm/projects/pro2/resources/templates/pro4/documents/slide.tpl",
+		"/home/pfgzm/projects/pro2/resources/templates/pro4/share_link.tpl",
+		"/home/pfgzm/projects/pro2/Cms/Messenger/Handler/SeoLoad.php",
+		"/home/pfgzm/projects/pro2/Cms/Session.php",
+		"/home/pfgzm/projects/pro2/vhosts/static/_global/npm-debug.log",
+		"/home/pfgzm/projects/pro2/vhosts/static/_global/scripts/modules/top.js",
+		"/home/pfgzm/projects/pro2/vhosts/static/_global/scripts/other/cm_fullscreen.js",
+		"/home/pfgzm/projects/pro2/resources/templates/pro4/form/code.tpl",
+		"/home/pfgzm/projects/pro2/vhosts/static/_global/scripts/modules/code-mirror.js",
+		"/home/pfgzm/projects/pro2/vhosts/static/_global/scripts/modules/block-resize.js",
+		"/home/pfgzm/projects/pro2/vhosts/static/admin2/less/admin.less",
+		"/home/pfgzm/projects/pro2/vhosts/static/pro4/less/global.less",
+		"/home/pfgzm/projects/pro2/Cms/Cached/CachedObject.php",
+		"/home/pfgzm/projects/pro2/cli",
+		"/home/pfgzm/projects/pro2/Cms/Text/Creole/Rule/Code.php",
+		"/home/pfgzm/projects/pro2/vhosts/static/_global/jst/forums/comment-delete.jst",
+		"/home/pfgzm/projects/pro2/vhosts/static/_global/scripts/common/events.js",
+		"/home/pfgzm/.dotset/.config/sublime-text-3/Packages/User/SublimeLinter.sublime-settings",
+		"/home/pfgzm/projects/pro2/vhosts/static/_global/scripts/modules/events.js",
+		"/home/pfgzm/projects/pro2/Cms/Events/Event.php",
+		"/home/pfgzm/projects/pro2/resources/templates/pro4/sidebars/employer_vacancies.tpl",
+		"/home/pfgzm/projects/pro2/Cms/Exception.php",
+		"/home/pfgzm/projects/pro2/.gitignore",
+		"/home/pfgzm/projects/check/dist/styles/main.css",
+		"/home/pfgzm/projects/check/app/styles/main.css",
+		"/home/pfgzm/projects/check/dist/index.html",
+		"/home/pfgzm/projects/check/bower.json",
+		"/home/pfgzm/projects/check/app/images/check.png",
+		"/home/pfgzm/projects/check/app/images/ЧЕК 2 001 - копия.jpg",
+		"/home/pfgzm/projects/pro2/resources/templates/_global/modules.js",
+		"/home/pfgzm/projects/pro2/Cms/App/Modules.php",
+		"/home/pfgzm/projects/pro2/Cms/PhoneNumber/data/PhoneNumberMetadata_OM.php",
+		"/home/pfgzm/Downloads/index.php",
+		"/home/pfgzm/projects/tiso/root1gb/http/manager/ajaxMod.php",
+		"/home/pfgzm/projects/pro2/migration/deltas/done/7974-paid-accounts-refactoring.sql",
+		"/home/pfgzm/projects/pro2/bin/pngout",
+		"/home/pfgzm/uniweb/test_work_uniweb.md",
+		"/home/pfgzm/uniweb/uniweb.js"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 99.0,
+		"where_history":
+		[
+			"",
+			"*.less",
+			"",
+			"*.js",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"!important",
+			"<li class=\"next\">",
+			"<td>f",
+			"<td>-",
+			"    events.on(this.node, 'input change', function() {\n      events.fire(self.node, ui.events.change);\n    });\n\n    events.on(this.node, ui.events.changeState, function(e, data) {\n      if (data.state === ui.states.focus) {\n        self.node.focus();\n      }",
+			"sync.js",
+			"sync",
+			";\n",
+			"code-mirror",
+			"code-mirrow",
+			"  position: absolute;\n  left: 1px;\n  top: auto;\n  right: 1px;\n  bottom: 1px;\n  z-index: 1;\n  display: block;\n  width: auto;\n  height: 10px;\n  cursor: pointer;",
+			"/z-index",
+			"z-index",
+			"data-name=\"block-resize\"",
+			"code-mirror",
+			"resize.view",
+			"                                        self.get('resizeMin'));\n    style.height = size + 'px';\n    return size;\n  };\n\n  resize.set('name', exports.names.blockResize);\n\n  style.height = defaultHeight + 'px';\n",
+			"define('block-resize'",
+			"define('textarea",
+			"textarea",
+			"\"",
+			";\n",
+			"pole",
+			"courier",
+			"9000",
+			"function sync",
+			"sync",
+			"synk"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 20511,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5909,
+								5909
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": true,
+								"action": null,
+								"action_count": "",
+								"mode": "mode_insert",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 20
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 3447.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 30.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "wc-moscowjs.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"webrtc",
+				"vhosts/static/_global/scripts/modules/webrtc.js"
+			],
+			[
+				"globa",
+				"config/global.php"
+			],
+			[
+				"micro",
+				"vhosts/static/_global/scripts/other/micro.js"
+			],
+			[
+				"tel-",
+				"resources/templates/pro4/pages/tel-test.tpl"
+			],
+			[
+				"parser",
+				"vhosts/static/_global/scripts/modules/parser.js"
+			],
+			[
+				"fro",
+				"config/frontend.php"
+			],
+			[
+				"dialog.js",
+				"vhosts/static/_global/scripts/modules/dialog.js"
+			],
+			[
+				"/pro4/form/layouts/dialog.tpl",
+				"resources/templates/pro4/form/layouts/dialog.tpl"
+			],
+			[
+				"slider.js",
+				"vhosts/static/_global/scripts/modules/slider.js"
+			],
+			[
+				"block-resize",
+				"vhosts/static/_global/scripts/modules/block-resize.js"
+			],
+			[
+				"code-mi",
+				"vhosts/static/_global/scripts/modules/code-mirror.js"
+			],
+			[
+				"pro4/form/code.tpl",
+				"resources/templates/pro4/form/code.tpl"
+			],
+			[
+				"code-m",
+				"vhosts/static/_global/scripts/modules/code-mirror.js"
+			],
+			[
+				"other/cm_fullscreen.js",
+				"vhosts/static/_global/scripts/other/cm_fullscreen.js"
+			],
+			[
+				"event.js",
+				"vhosts/static/_global/scripts/common/events.js"
+			],
+			[
+				"module",
+				"resources/templates/_global/modules.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/projects/pro2/pro2.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"_vintageous_reset_during_init": true,
+		"vintage":
+		{
+			"_cmdline_cd": "/home/pfgzm/projects/wc-moscowjs-slides"
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 353.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
