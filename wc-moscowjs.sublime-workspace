@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"style",
+				"style	Tag"
+			],
+			[
 				"fo",
 				"font-size"
 			],
@@ -67,7 +71,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 20511,
+				"buffer_size": 18344,
 				"line_ending": "Unix"
 			}
 		}
@@ -104,7 +108,8 @@
 	},
 	"expanded_folders":
 	[
-		"/home/pfgzm/projects/wc-moscowjs-slides"
+		"/home/pfgzm/projects/wc-moscowjs-slides",
+		"/home/pfgzm/projects/wc-moscowjs-slides/pictures"
 	],
 	"file_history":
 	[
@@ -270,15 +275,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 20511,
+						"buffer_size": 18344,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5909,
-								5909
+								15608,
+								15608
 							]
 						],
 						"settings":
@@ -302,7 +307,7 @@
 							}
 						},
 						"translation.x": 0.0,
-						"translation.y": 3447.0,
+						"translation.y": 8245.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
