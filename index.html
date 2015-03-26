@@ -59,7 +59,7 @@
 			font-weight: bold;
 			background-color: rgba(255,255,0,0.8);
 		}
-		#audio h2 {
+		#audio-one h2, #audio-two h2 {
 			margin:-60px 0 0;
 			padding: 5px;
 			background-color: rgba(255,255,255,0.6);
@@ -111,26 +111,20 @@
 		<img src="pictures/puzzle-cover.jpg" alt="">
 	</div></section>
 
-<!-- 	<section class="slide"><div>
-		<h2> Структура</h2>
-		<ul>
-			<li> Веб-компоненты</li>
-			<li> Библиотека Polymer</li>
-		</ul>
-	</div></section> -->
-
 	<section class="slide cover"><div>
-		<p class="note" style="text-align:right; margin-top: -90px;">Copyright © bem.info</p>
-		<img src="pictures/bemone.png" alt="">
+		<img src="pictures/badoo-one.jpg" alt="">
 	</div></section>
 
 	<section class="slide cover"><div>
-		<p class="note" style="text-align:right; margin-top: -90px;">Copyright © bem.info</p>
-		<img src="pictures/bemtwo.png" alt="">
+		<img src="pictures/badoo-two.jpg" alt="">
+	</div></section>
+
+	<section class="slide cover"><div>
+		<img src="pictures/badoo-three.jpg" alt="">
 	</div></section>
 
 	<section class="slide shout shrink"><div>
-		<h2>Веб компоненты</h2>
+		<h2>Веб-компоненты</h2>
 	</div></section>
 
 	<section class="slide"><div>
@@ -146,7 +140,7 @@
 	<section class="slide"><div>
 		<h2>HTML Import</h2>
 		<pre>
-			<code>&lt;link rel="import" href="document.html"&gt;</code>
+			<code>&lt;link rel="import" href="component.html"&gt;</code>
 			<code class="nopseudo"></code>
 		</pre>
 	</div></section>
@@ -154,13 +148,13 @@
 	<section class="slide"><div>
 		<h2>До &lt;template&gt;</h2>
 		<pre class="next">
-			<code>&lt;div <mark>hidden</mark> id="temp"&gt;</code>
-			<code>    &lt;img class="pict" src="picture.jpg"&gt;</code>
+			<code>&lt;div <mark>hidden</mark> id="logo-temp"&gt;</code>
+			<code>    &lt;img class="logo" src="badoo.3.png"&gt;</code>
 			<code>&lt;/div&gt;</code>
 		</pre>
 		<pre class="next">
-			<code>&lt;script type="<mark>text/template</mark>"&gt;</code>
-			<code>    &lt;img class="pict" src="picture.jpg"&gt;</code>
+			<code>&lt;script type="<mark>text/template</mark>" id="logo-temp"&gt;</code>
+			<code>    &lt;img class="logo" src="badoo.3.png"&gt;</code>
 			<code>&lt;/script&gt;</code>
 		</pre>
 
@@ -169,12 +163,12 @@
 	<section class="slide"><div>
 		<h2>&lt;template&gt;</h2>
 		<pre>
-			<code>&lt;template id="temp"&gt;</code>
-			<code>    &lt;img class="pict" src="picture.jpg"&gt;</code>
+			<code>&lt;template id="logo-temp"&gt;</code>
+			<code>    &lt;img class="logo" src="badoo.3.png"&gt;</code>
 			<code>&lt;/template&gt;</code>
 		</pre>
 		<pre>
-			<code class="next">var temp = document.querySelector('#temp');</code>
+			<code class="next">var temp = document.querySelector('#logo-temp');</code>
 			<code class="next">var clone = temp.content.cloneNode(true);</code>
 			<code class="next">document.body.appendChild(clone);</code>
 		</pre>
@@ -184,7 +178,7 @@
 		<h2>Custom elements</h2>
 		<ul>
 			<li class="next"> Собственная логика</li>
-			<li class="next"> Доступны события жизненого цикла
+			<li class="next"> Доступны события жизненного цикла
 				<ul>
 					<li> Создание элемента </li>
 					<li> Вставка в документ </li>
@@ -202,43 +196,50 @@
 			<code>var proto = Object.create(HTMLElement.prototype);</code>
 			<div class="next">
 				<code>proto.createdCallback = function() {</code>
-				<code>    this.innerHTML = 'Содержимое моего элемента.';</code>
+				<code>    this.innerHTML = 'Уже зарегистрированы?';</code>
 				<code>};</code>
 			</div>
-			<code class="next">document.registerElement('my-elem', {prototype: proto});</code>
+			<code class="next">document.registerElement('join-blk', {prototype: proto});</code>
 		</pre>
 		<pre class="next">
-			<code>&lt;my-elem&gt;&lt;/my-elem&gt;</code>
+			<code>&lt;join-blk&gt;&lt;/join-blk&gt;</code>
 			<code class="nopseudo"></code>
 		</pre>
 	</div></section>
-
-	<section class="slide cover" id="audio"><div>
+<!-- 
+	<section class="slide cover" id="audio-one"><div>
 		<h2>Shadow DOM</h2>
-		<img src="pictures/audio.jpg" alt="">
+		<img src="pictures/audio-one.jpg" alt="">
+	</div></section> 
+-->
+	
+	<section class="slide cover" id="audio-two"><div>
+		<h2>Shadow DOM</h2>
+		<img src="pictures/audio-two.jpg" alt="">
 	</div></section>
 
 	<section class="slide"><div>
 		<h2>Shadow DOM</h2>
 		<pre class="next">
-			<code>&lt;button id="butt"&gt;Светлая сторона&lt;/button&gt;</code>
+			<code>&lt;button id="btn"&gt;Светлая сторона&lt;/button&gt;</code>
 			<code class="nopseudo"></code>
 		</pre>
 		<pre>
-			<code class="next">var host = document.querySelector('#butt');</code>
-			<code class="next">var root = host.createShadowRoot();</code>
-			<code class="next">root.textContent = 'Темная сторона';</code>
+			<code class="next">var shadowHost = document.querySelector('#btn');</code>
+			<code class="next">var shadowRoot = shadowHost.createShadowRoot();</code>
+			<code class="next">shadowRoot.textContent = 'Темная сторона';</code>
 		</pre>
-		<button class="next" id="butt" style="padding: 10px; font-size: 20px;">Светлая сторона</button>
+		<button class="next" id="btn" style="padding: 10px; font-size: 20px;">Светлая сторона</button>
+		<span class="next" style="margin-left: 30px; color: #aaa;"> btn.textContent;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Светлая сторона</span>
 		<script>
-			var host = document.querySelector('#butt');
+			var host = document.querySelector('#btn');
 			var root = host.createShadowRoot();
 			root.textContent = 'Темная сторона';
 		</script>
 	</div></section>
 
 	<section class="slide shout shrink"><div>
-		<h2>Все части вместе</h2>
+		<h2>Всё вместе</h2>
 	</div></section>
 
 	<section class="slide minicode"><div style="padding-top: 70px; height: 540px;">
@@ -247,10 +248,10 @@
 				font-size: 21px;
 			}
 		</style>
-		<h3>Создаем my-elem.html</h3>
+		<h3>Создаем join-blk.html</h3>
 		<pre class="next">
 			<code>&lt;template id="temp"&gt;</code>
-			<code>    &lt;div&gt;Содержимое компоненты. <mark class="next">&lt;content&gt;&lt;/content&gt;</mark>&lt;/div&gt;</code>
+			<code>    &lt;div&gt;Уже зарегистрированы? <mark class="next">&lt;content&gt;&lt;/content&gt;</mark>&lt;/div&gt;</code>
 			<code>&lt;/template&gt;</code>
 		</pre>
 		<pre class="next">
@@ -260,20 +261,20 @@
 			<code class="next">    var shadow = this.createShadowRoot();</code>
 			<code class="next">    shadow.appendChild(temp.content.cloneNode(true));</code>
 			<code class="link next">};</code>
-			<code class="next">document.registerElement('my-elem', {prototype: proto});</code>
+			<code class="next">document.registerElement('join-blk', {prototype: proto});</code>
 		</pre>
 	</div></section>
 
 	<section class="slide"><div>
 		<h2>Использование</h2>
 		<pre>
-			<code>&lt;link rel="import" href="my-elem.html"&gt;</code>
-			<code class="next showlink">&lt;my-elem&gt;Содержимое одного элемента.&lt;/my-elem&gt;</code>
-			<code class="next showlink">&lt;my-elem&gt;&lt;b&gt;Содержимое второго элемента.&lt;/b&gt;&lt;/my-elem&gt;</code>
+			<code>&lt;link rel="import" href="join-blk.html"&gt;</code>
+			<code class="next showlink">&lt;join-blk&gt;&lt;button&gt;<mark>Да</mark>&lt;/button&gt;&lt;/join-blk&gt;</code>
+			<code class="next showlink">&lt;join-blk&gt;&lt;button&gt;<mark>Нет</mark>&lt;/button&gt;&lt;/join-blk&gt;</code>
 		</pre>
 		<p>
-			<span class="link next">Содержимое компоненты. Содержимое одного элемента.</span><br>
-			<span class="link next">Содержимое компоненты. <b>Содержимое второго элемента.</b></span>
+			<span class="link next">Уже зарегистрированы? <button style="margin-left:20px; width: 100px; padding: 5px; font-size: 20px;">Да</button></span><br>
+			<span class="link next">Уже зарегистрированы? <button style="margin-left:20px; width: 100px; padding: 5px; font-size: 20px;">Нет</button></span>
 		</p>
 	</div></section>
 
@@ -410,6 +411,7 @@
 	</div></section>
 
 	<section class="slide cover"><div>
+		<h2 style="text-align:center; margin-top:360px; font-size: 100px;">Polymer</h2>
 		<img src="pictures/polymer.jpg" alt="">
 	</div></section>
 
@@ -418,8 +420,12 @@
 		<ul>
 			<li> Новая версия (полностью переписана)</li>
 			<li class="next"> Увеличена производительность</li>
-			<li class="next"> Уменьшен размер</li>
-			<li class="next"> Возможность выбора уровня функциональности</li>
+			<li class="next"> Возможность выбора уровня функциональности
+				<ul>
+					<li> polymer-micro, polymer-mini, polymer</li> 
+				</ul>
+			</li>
+			<li class="next"> Уменьшен размер (<mark>350</mark> (130) kb -> <mark>85</mark> kb)</li>
 			<li class="next"> Ожидаемый выход <code>production release 1.0</code> - 2 квартал 2015</li>
 		</ul>
 	</div></section>
@@ -432,14 +438,14 @@
 		<h3>Базовый синтаксический сахар</h3>
 		<pre>
 			<code>Polymer({</code>
-			<code>    <mark>is</mark>: 'my-elem',</code>
+			<code>    <mark>is</mark>: 'join-blk',</code>
 			<code>    <mark>created</mark>: function() {</code>
-			<code>        this.innerHTML = 'Привет из веб-компоненты!';</code>
+			<code>        this.innerHTML = 'Уже зарегистрированы?';</code>
 			<code>    }</code>
 			<code>});</code>
 		</pre>
 		<pre>
-			<code>&lt;my-elem&gt;&lt;/my-elem&gt;</code>
+			<code>&lt;join-blk&gt;&lt;/join-blk&gt;</code>
 			<code class="nopseudo"></code>
 		</pre>
 	</div></section>
@@ -448,12 +454,12 @@
 		<h3>Наследование от нативных элементов</h3>
 		<pre>
 			<code>Polymer({</code>
-			<code>    is: 'my-elem',</code>
+			<code>    is: 'join-input',</code>
 			<code>    <mark>extends</mark>: 'input'</code>
 			<code>});</code>
 		</pre>
 		<pre>
-			<code>&lt;my-elem&gt;&lt;/my-elem&gt;</code>
+			<code>&lt;join-input&gt;&lt;/join-input&gt;</code>
 			<code class="nopseudo"></code>
 		</pre>
 	</div></section>
@@ -462,74 +468,74 @@
 		<h3>Конвертация атрибутов к свойствам</h3>
 		<pre>
 			<code>Polymer({</code>
-			<code>    is: 'my-elem',</code>
+			<code>    is: 'join-blk',</code>
 			<code>    <mark>properties</mark>: {</code>
 			<code>        <mark>userName</mark>: String,</code>
 			<code>    }</code>
 			<code>});</code>
 		</pre>
 		<pre>
-			<code>&lt;my-elem <mark>user-name</mark>="Denis"&gt;&lt;/my-elem&gt;</code>
+			<code>&lt;join-blk <mark>user-name</mark>="Denis"&gt;&lt;/join-blk&gt;</code>
 			<code class="nopseudo"></code>
 		</pre>
 	</div></section>
 
 	<section class="slide"><div>
-		<h3>Расширеная работа с шаблонами</h3>
+		<h3>Работа с шаблонами</h3>
 		<pre>
-			<code>&lt;<mark>dom-module</mark> id="my-elem"&gt;</code>
-			<code>    &lt;template&gt;Привет из веб-компоненты!&lt;/template&gt;</code>
-			<code>    &lt;<mark>content</mark> select="<mark>.myclass</mark>"&gt;&lt;<mark>/content</mark>&gt;</code>
+			<code>&lt;<mark>dom-module</mark> id="join-blk"&gt;</code>
+			<code>    &lt;template&gt;&lt;div&gt;Уже зарегистрированы?&lt;/div&gt;&lt;/template&gt;</code>
+<!-- 			<code>    &lt;<mark>content</mark> select="<mark>.myclass</mark>"&gt;&lt;<mark>/content</mark>&gt;</code> -->
 			<code>&lt;<mark>/dom-module</mark>&gt;</code>
 		</pre>
 		<pre>
 			<code>Polymer({</code>
-			<code>    is: 'my-elem'</code>
+			<code>    is: 'join-blk'</code>
 			<code>});</code>
 		</pre>
 	</div></section>
 
 	<section class="slide"><div>
-		<h3>Изолирование оформления (scoped css)</h3>
+		<h3>Изолированое оформление (scoped css)</h3>
 		<pre>
-			<code>&lt;dom-module id="my-elem"&gt;</code>
-			<code>    &lt;<mark>style</mark>&gt;/* Оформление */&lt;<mark>/style</mark>&gt;</code>
-			<code>    &lt;template&gt;Привет из веб-компоненты!&lt;/template&gt;</code>
+			<code>&lt;dom-module id="join-blk"&gt;</code>
+			<code>    &lt;<mark>style</mark>&gt; div { color: red; } &lt;<mark>/style</mark>&gt;</code>
+			<code>    &lt;template&gt;&lt;div&gt;Уже зарегистрированы?&lt;/div&gt;&lt;/template&gt;</code>
 			<code>&lt;/dom-module&gt;</code>
 		</pre>
 		<pre>
 			<code>Polymer({</code>
-			<code>    is: 'my-elem'</code>
+			<code>    is: 'join-blk'</code>
 			<code>});</code>
 		</pre>
 	</div></section>
 
 	<section class="slide"><div>
-		<h3>Удобную работу с обработкой событий</h3>
+		<h3>Обработка событий</h3>
 		<pre>
 			<code>Polymer({</code>
-			<code>    is: 'my-elem',</code>
+			<code>    is: 'join-blk',</code>
 			<code>    <mark>listeners</mark>: {</code>
 			<code>        '<mark>click</mark>': '<mark>handleClick</mark>'</code>
 			<code>    },</code>
 			<code>    <mark>handleClick</mark>: function(e) {</code>
-			<code>        alert("Спасибо за клик!");</code>
+			<code>        alert("Вы не зарегистрированы!");</code>
 			<code>} });</code>
 		</pre>
 	</div></section>
 
 	<section class="slide"><div>
-		<h3>Установка обработчика через атрибуты</h3>
+		<h3>Установка через атрибуты</h3>
 		<pre>
-			<code>&lt;dom-module id="my-elem"&gt;&lt;template&gt;</code>
-			<code>    &lt;button <mark>on-click</mark>="<mark>handleClick</mark>"&gt;Жми!&lt;/button&gt;</code>
+			<code>&lt;dom-module id="join-blk"&gt;&lt;template&gt;</code>
+			<code>    &lt;button <mark>on-click</mark>="<mark>handleClick</mark>"&gt;Войти&lt;/button&gt;</code>
 			<code>&lt;/template&gt;&lt;/dom-module&gt;</code>
 		</pre>
 		<pre>
 			<code>Polymer({</code>
-			<code>    is: 'my-elem',</code>
+			<code>    is: 'join-blk',</code>
 			<code>    <mark>handleClick</mark>: function(e) {</code>
-			<code>        alert("Спасибо за клик!");</code>
+			<code>        alert("Вы не зарегистрированы!");</code>
 			<code>} });</code>
 		</pre>
 	</div></section>
@@ -538,7 +544,7 @@
 		<h3>Отслеживание изменения свойств</h3>
 		<pre>
 			<code>Polymer({</code>
-			<code>    is: 'my-elem',</code>
+			<code>    is: 'join-blk',</code>
 			<code>    properties: { preload: Boolean, src: String },</code>
 			<code>    <mark>observers</mark>: {</code>
 			<code>        'preload src': '<mark>updateImage</mark>'</code>
@@ -551,13 +557,13 @@
 	<section class="slide"><div>
 		<h3>Декларативный дата биндинг</h3>
 		<pre>
-			<code>&lt;dom-module id="my-elem"&gt;&lt;template&gt;</code>
-			<code>    &lt;p&gt;Привет! Меня зовут &lt;span&gt;<mark>{{user.name}}</mark>&lt;/span&gt;&lt;/p&gt;</code>
+			<code>&lt;dom-module id="join-blk"&gt;&lt;template&gt;</code>
+			<code>    &lt;p&gt;С возвращением, &lt;span&gt;<mark>{{user.name}}</mark>&lt;/span&gt;!&lt;/p&gt;</code>
 			<code>&lt;/template&gt;&lt;/dom-module&gt;</code>
 		</pre>
 		<pre>
 			<code>Polymer({</code>
-			<code>    is: 'my-elem',</code>
+			<code>    is: 'join-blk',</code>
 			<code>    properties: { <mark>user</mark>: { type: Object,</code>
 			<code>                           value: { <mark>name</mark>: 'Денис' }</code>
 			<code>} } });</code>
@@ -567,13 +573,13 @@
 	<section class="slide"><div>
 		<h3>А так же:</h3>
 		<ul>
-			<li class="next"> Собственный ай-пи-ай для работы с DOM</li>
+			<li class="next"> Собственный API для работы с DOM</li>
 			<li class="next"> Обновление внешних атрибутов</li>
 			<li class="next"> Вычисляемые свойства </li>
-			<li class="next"> Набор вспомогательных хелперов</li>
-			<li class="next"> Экспериментальные элементы</li>
-			<li class="next"> Собственные css свойства (экс.)</li>
+			<li class="next showlink"> Вспомогательные элементы *</li>
+			<li class="next"> Собственные css свойства *</li>
 		</ul>
+		<p class="link note next"> * эксперементальные</p>
 	</div></section>
 
 	<section class="slide"><div>
@@ -585,10 +591,18 @@
 		</ul>
 	</div></section>
 
+	<section class="slide shout shrink"><div>
+		<h2>Заключение</h2>
+	</div></section>
+
+	<section class="slide cover"><div>
+		<img src="pictures/github.jpg" alt="">
+	</div></section>
+
 	<section class="slide"><div>
 		<h2>Заключение</h2>
 		<ul>
-			<li class="next"> Уже используют Github, Salesforce, NewsCorp ...</li>
+			<li> Уже используют Github, Salesforce, NewsCorp ...</li>
 			<li class="next"> Скоро будут Youtube, QuickOffice, GoogleMusic ...</li>
 			<li class="next"> Много примеров: PolymerMail, Topeka, SantaTracker ...</li>
 		</ul>
@@ -601,13 +615,13 @@
 		<h2>Вопросы?</h2>
 		<h3 style="margin: 30px 0;">Денис Иогансен</h3>
 		<ul>
-			<li> <a href="https://github.com/Pofigizm">github: @pofigizm </a></li>
 			<li> <a href="https://twitter.com/pofigizm">twitter: @pofigizm</a></li>
 			<li> <a href="mailto:pofigizm@gmail.com">pofigizm@gmail.com</a></li>
 		</ul>
 		<ul>
-			<li><a href="http://pofigizm.github.io/wc-moscowjs-slides">Презентация</a></li>
-			<li><a href="http://webcomponents.org/">Главная ссылка</a></li>
+			<li>Презентация - <a href="http://ow.ly/KOchC">ow.ly/KOchC</a></li>
+			<li>Веб-компоненты - <a href="http://ow.ly/KOd6Q">ow.ly/KOd6Q</a></li>
+			<li>Polymer 0.8 - <a href="http://ow.ly/KOcSg">ow.ly/KOcSg</a></li>
 		</ul>
 		<img src="pictures/qr-code.gif" class="place r b" style="margin-right: 75px; margin-bottom: 45px;">
 	</div></section>

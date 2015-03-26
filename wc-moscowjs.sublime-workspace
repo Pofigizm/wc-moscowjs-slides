@@ -71,7 +71,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 18344,
+				"buffer_size": 19058,
 				"line_ending": "Unix"
 			}
 		}
@@ -109,7 +109,8 @@
 	"expanded_folders":
 	[
 		"/home/pfgzm/projects/wc-moscowjs-slides",
-		"/home/pfgzm/projects/wc-moscowjs-slides/pictures"
+		"/home/pfgzm/projects/wc-moscowjs-slides/pictures",
+		"/home/pfgzm/projects/wc-moscowjs-slides/v23"
 	],
 	"file_history":
 	[
@@ -275,15 +276,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18344,
+						"buffer_size": 19058,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								15608,
-								15608
+								11426,
+								11426
 							]
 						],
 						"settings":
@@ -303,11 +304,11 @@
 								"partial_sequence": "",
 								"register": "\"",
 								"sequence": "",
-								"xpos": 20
+								"xpos": 82
 							}
 						},
 						"translation.x": 0.0,
-						"translation.y": 8245.0,
+						"translation.y": 6888.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -436,7 +437,7 @@
 		[
 			[
 				"",
-				"~/projects/pro2/pro2.sublime-project"
+				"~/.dotset/projects/pr-polymer.sublime-project"
 			]
 		],
 		"width": 380.0
